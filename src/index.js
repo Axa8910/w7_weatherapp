@@ -52,23 +52,31 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml += `
+      <div class="weather-forecast-day">
+        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-icon">🌤️</div>
+        <div class="weather-forecast-temperatures">
+          <div class="weather-forecast-temperature">
+            <strong>15º</strong>
+          </div>
+          <div class="weather-forecast-temperature">9º</div>
+        </div>
+      </div>
+    `;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Stockholm");
-
-let forecast = document.querySelector("#forecast");
-forecast.innerHTML = `
-<div class="weather-forecast-day">
-    <div class="weather-forecast-date">Thu </div> 
-    <div class="weather-forecast-icon">☀️</div> 
-    <div class="weather-forecast-temperatures">
-      <div class="weather-forecast-temperature-max">
-      <strong>18°</strong>
-    </div>
-    <div class="weather-forecast-temperature-min">
-     <strong>12°</strong>
-      </div>
-    </div>
-    </div>
-`;
+displayForecast();
