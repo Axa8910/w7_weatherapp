@@ -56,3 +56,19 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Stockholm");
+
+let forecast = document.querySelector("#forecast");
+forecast.innerHTML = `
+<div class="weather-forecast-day">
+    <div class="weather-forecast-date">Thu </div> 
+    <div class="weather-forecast-icon">☀️</div> 
+    <div class="weather-forecast-temperatures">
+      <div class="weather-forecast-temperature-max">
+      <strong>18°</strong>
+    </div>
+    <div class="weather-forecast-temperature-min">
+     <strong>12°</strong>
+      </div>
+    </div>
+    </div>
+`;
